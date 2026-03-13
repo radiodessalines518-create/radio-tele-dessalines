@@ -1,0 +1,367 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Radio Télé Dessalines Theme */
+  --background: #FFFFFF;
+  --foreground: #0B0B0B;
+  --card: #FFFFFF;
+  --card-foreground: #0B0B0B;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B0B0B;
+  --primary: #C8102E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #0B0B0B;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F5F5F5;
+  --muted-foreground: #6B6B6B;
+  --accent: #F5C518;
+  --accent-foreground: #0B0B0B;
+  --destructive: #C8102E;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #C8102E;
+  --chart-1: #C8102E;
+  --chart-2: #F5C518;
+  --chart-3: #0B0B0B;
+  --chart-4: #6B6B6B;
+  --chart-5: #E5E5E5;
+  --radius: 0.5rem;
+  --sidebar: #0B0B0B;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #C8102E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5C518;
+  --sidebar-accent-foreground: #0B0B0B;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #C8102E;
+}
+
+.dark {
+  --background: #0B0B0B;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --primary: #C8102E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2A2A2A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
+  --accent: #F5C518;
+  --accent-foreground: #0B0B0B;
+  --destructive: #C8102E;
+  --destructive-foreground: #FFFFFF;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #C8102E;
+  --chart-1: #C8102E;
+  --chart-2: #F5C518;
+  --chart-3: #FFFFFF;
+  --chart-4: #A0A0A0;
+  --chart-5: #2A2A2A;
+  --sidebar: #0B0B0B;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #C8102E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5C518;
+  --sidebar-accent-foreground: #0B0B0B;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #C8102E;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animations Premium - Outside @layer for Tailwind v4 compatibility */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(200, 16, 46, 0.7);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Custom CSS utilities (outside @layer for Tailwind v4 compatibility) */
+.transition-all-smooth {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+.transition-fast {
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.card-hover {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+.card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: scale(1.05) translateY(-4px);
+}
+
+.card-hover-subtle {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+.card-hover-subtle:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: scale(1.02);
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.button-glow {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+.button-glow:hover {
+  box-shadow: 0 10px 15px -3px rgb(200 16 46 / 0.5);
+}
+
+.skeleton {
+  animation: shimmer 2s infinite;
+  border-radius: 0.375rem;
+  background-color: var(--muted);
+}
+
+/* Radio Live Premium Glow Effects */
+@keyframes radio-glow-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(200, 16, 46, 0.4),
+      0 0 40px rgba(200, 16, 46, 0.2),
+      0 0 60px rgba(200, 16, 46, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(200, 16, 46, 0.6),
+      0 0 60px rgba(200, 16, 46, 0.4),
+      0 0 90px rgba(200, 16, 46, 0.2);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes radio-ring-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes radio-ring-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes sound-wave-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.radio-glow-active {
+  animation: radio-glow-pulse 2s ease-in-out infinite;
+}
+
+.radio-ring-rotating {
+  animation: radio-ring-rotate 8s linear infinite;
+}
+
+.radio-ring-pulsing {
+  animation: radio-ring-pulse 1.5s ease-in-out infinite;
+}
+
+.sound-wave {
+  animation: sound-wave-expand 1.5s ease-out infinite;
+}
+
+.sound-wave-delayed-1 {
+  animation: sound-wave-expand 1.5s ease-out infinite 0.3s;
+}
+
+.sound-wave-delayed-2 {
+  animation: sound-wave-expand 1.5s ease-out infinite 0.6s;
+}
+
+/* Conic gradient ring for premium effect */
+.radio-conic-ring {
+  background: conic-gradient(
+    from 0deg,
+    #C8102E 0deg,
+    #F5C518 90deg,
+    #C8102E 180deg,
+    #F5C518 270deg,
+    #C8102E 360deg
+  );
+}
