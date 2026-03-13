@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
 
-// Initialize Stripe with secret key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+// Get Stripe secret key safely
+const stripeKey = process.env.STRIPE_SECRET_KEY
+
+if (!stripeKey) {
+  throw new Error("STRIPE_SECRET_KEY is not defined in environment variables")
+}
+
+// Initialize Stripe
+const stripe = new Stripe(stripeKey, {
   apiVersion: "2024-12-18.acacia",
 })
 
@@ -19,6 +26,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL || "https://radioteledessalines.ht"
+
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -29,16 +39,18 @@ export async function POST(request: NextRequest) {
             product_data: {
               name: "Don a Radio Tele Dessalines",
               description: `Merci pour votre don de $${amount} a Radio Tele Dessalines`,
-              images: ["https://radioteledessalines.ht/images/logo-rtd.png"],
+              images: [`${baseUrl}/images/logo-rtd.png`],
             },
-            unit_amount: Math.round(amount * 100), // Stripe uses cents
+            unit_amount: Math.round(amount * 100),
           },
           quantity: 1,
         },
       ],
       mode: "payment",
-      success_url: successUrl || `${process.env.NEXT_PUBLIC_BASE_URL || "https://radioteledessalines.ht"}/donation/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: cancelUrl || `${process.env.NEXT_PUBLIC_BASE_URL || "https://radioteledessalines.ht"}/donation/cancel`,
+      success_url:
+        successUrl ||
+        `${baseUrl}/donation/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: cancelUrl || `${baseUrl}/donation/cancel`,
       metadata: {
         type: "donation",
         amount: amount.toString(),
@@ -51,7 +63,7 @@ export async function POST(request: NextRequest) {
       url: session.url,
     })
   } catch (error) {
-    console.error("[v0] Stripe error:", error)
+    console.error("[Stripe error]:", error)
     return NextResponse.json(
       { error: "Erreur lors de la creation de la session de paiement" },
       { status: 500 }
@@ -82,7 +94,7 @@ export async function GET(request: NextRequest) {
       customerEmail: session.customer_details?.email,
     })
   } catch (error) {
-    console.error("[v0] Stripe verification error:", error)
+    console.error("[Stripe verification error]:", error)
     return NextResponse.json(
       { error: "Erreur lors de la verification du paiement" },
       { status: 500 }
