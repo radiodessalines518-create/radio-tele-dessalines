@@ -15,9 +15,9 @@ const articles = [
   {
     id: 1,
     slug: "victoire-equipe-nationale-football",
-    title: "Victoire historique pour l'équipe nationale de football",
-    excerpt: "Les Grenadiers s'imposent face à leur adversaire dans un match décisif pour les qualifications à la Coupe du Monde.",
-    date: "10 mars 2026",
+    title: "Real Madrid domine Manchester City lors du match aller",
+    excerpt: "Mercredi 11 mars, Real Madrid a imposé sa loi face à Manchester City avec un score net de 3-0, laissant les fans impatients pour le match retour à l'Etihad Stadium.",
+    date: "Melege Fils Louis. Journaliste sportif.          mercredi 11 mars 2026",
     image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=500&fit=crop",
   },
   {
@@ -55,9 +55,9 @@ const articles = [
   {
     id: 6,
     slug: "inauguration-stade-dessalines",
-    title: "Inauguration du nouveau stade de Dessalines",
-    excerpt: "La ville de Dessalines inaugure son nouveau complexe sportif moderne pouvant accueillir 10 000 spectateurs.",
-    date: "28 février 2026",
+    title: "FC Barcelone vs Newcastle : Un Match Retour Crucial en Ligue des Champions",
+    excerpt: "Le mercredi 18 mars 2026, le FC Barcelone reçoit Newcastle United pour le match retour des huitièmes de finale de la Ligue des Champions, avec un score aller de 1-1 qui laisse tout ouvert avant cette rencontre décisive.",
+    date: "mercredi 18 mars 2026",
     image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=500&fit=crop",
   },
 ]
@@ -112,30 +112,7 @@ function SportPageContent() {
             {selectedArticle.excerpt}
           </p>
 
-          <p className="text-lg leading-relaxed mb-6">
-            Le sport haïtien connaît un essor remarquable avec des performances
-            qui font la fierté de toute la nation.
-          </p>
-
-          <p className="text-lg leading-relaxed mb-6">
-            Les athlètes haïtiens continuent de repousser leurs limites
-            et d{"'"}inspirer les nouvelles générations.
-          </p>
-
-          <div className="my-10">
-            <Image
-              src={selectedArticle.image}
-              alt="illustration"
-              width={900}
-              height={500}
-              className="rounded-xl"
-            />
-          </div>
-
-          <p className="text-lg leading-relaxed">
-            Radio Télé Dessalines vous tient informés de toutes les actualités
-            sportives en Haïti et dans le monde.
-          </p>
+      
         </main>
 
         <Footer />

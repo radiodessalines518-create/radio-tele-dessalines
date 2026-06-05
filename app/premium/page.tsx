@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
-import { Check, Star, Crown, Zap, Radio, Tv, Headphones, Download, X } from "lucide-react"
+import { Check, Star, Crown, Zap, Radio, Tv, Headphones, Download, X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/header"
@@ -97,11 +96,40 @@ const PREMIUM_BENEFITS = [
 export default function PremiumPage() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
   const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly")
+  const [isLoading, setIsLoading] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubscribe = (planId: string) => {
+  const handleSubscribe = async (planId: string) => {
     setSelectedPlan(planId)
-    // Integration avec Stripe/PayPal pour le paiement
-    alert(`Redirection vers le paiement pour le plan ${planId}...`)
+    setIsLoading(planId)
+    setError(null)
+
+    try {
+      const response = await fetch("/api/premium", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          planId,
+          interval: billingInterval,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Erreur lors de la creation de la session")
+      }
+
+      // Rediriger vers Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Une erreur est survenue")
+      setIsLoading(null)
+    }
   }
 
   return (
@@ -149,6 +177,19 @@ export default function PremiumPage() {
       {/* Pricing Cards */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4">
+          {/* Error Message */}
+          {error && (
+            <div className="mb-8 rounded-lg bg-red-100 p-4 text-center text-red-700">
+              <p>{error}</p>
+              <button 
+                onClick={() => setError(null)} 
+                className="mt-2 text-sm underline"
+              >
+                Fermer
+              </button>
+            </div>
+          )}
+
           <div className="grid gap-8 md:grid-cols-3">
             {PREMIUM_PLANS.map((plan) => {
               const Icon = plan.icon
@@ -190,6 +231,7 @@ export default function PremiumPage() {
 
                   <Button
                     onClick={() => handleSubscribe(plan.id)}
+                    disabled={isLoading === plan.id}
                     className={cn(
                       "w-full",
                       plan.popular
@@ -197,7 +239,14 @@ export default function PremiumPage() {
                         : "bg-secondary hover:bg-secondary/90"
                     )}
                   >
-                    Choisir {plan.name}
+                    {isLoading === plan.id ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Redirection...
+                      </>
+                    ) : (
+                      `Choisir ${plan.name}`
+                    )}
                   </Button>
 
                   <ul className="mt-6 space-y-3">
@@ -305,10 +354,20 @@ export default function PremiumPage() {
           <Button
             size="lg"
             onClick={() => handleSubscribe("premium")}
+            disabled={isLoading === "premium"}
             className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            <Crown className="mr-2 h-5 w-5" />
-            Commencer maintenant
+            {isLoading === "premium" ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Redirection...
+              </>
+            ) : (
+              <>
+                <Crown className="mr-2 h-5 w-5" />
+                Commencer maintenant
+              </>
+            )}
           </Button>
         </div>
       </section>

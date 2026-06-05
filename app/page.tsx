@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer"
 import { LiveChat } from "@/components/live-chat"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { DonationButton } from "@/components/donation-button"
-import { AdBanner } from "@/components/google-adsense"
+import { SponsorBanner, SponsorBannerRotating } from "@/components/sponsor-banner"
 
 export default function Home() {
   return (
@@ -22,10 +22,20 @@ export default function Home() {
         <HeroSlider />
         <RadioLive />
         <TvLive />
-        <AdBanner className="mx-auto max-w-7xl px-4" />
+        {/* Banniere publicitaire avec rotation automatique */}
+        <SponsorBannerRotating 
+          className="mx-auto max-w-7xl px-4" 
+          size="medium"
+          interval={6000}
+        />
         <NewsSection />
         <NewsAggregator />
-        <AdBanner className="mx-auto max-w-7xl px-4" />
+        {/* Banniere publicitaire aleatoire */}
+        <SponsorBanner 
+          className="mx-auto max-w-7xl px-4" 
+          size="medium"
+          random
+        />
         <VideosSection />
         <PodcastsSection />
         <SponsorsSection />

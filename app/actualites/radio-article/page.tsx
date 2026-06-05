@@ -56,14 +56,14 @@ export default function RadioArticle() {
           </p>
           <div className="relative h-80 w-full overflow-hidden rounded-xl">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/radio-studio-MiKGelGiGBqlBcTl2PbQxMXw7gN7jr.jpg"
-              alt="Samuel Dorcely et André Fritznal en studio"
-              fill
-              className="object-cover"
-            />
+  src="/images/studio-rtd.jpg"
+  alt="Studio Radio Télé Dessalines"
+  fill
+  className="object-cover"
+/>
           </div>
           <p className="text-sm text-muted-foreground text-center italic">
-            Samuel Dorcely et André Fritznal en pleine émission au studio de Radio Télé Dessalines
+            L’équipe de Radio Télé Dessalines au studio.
           </p>
         </section>
 

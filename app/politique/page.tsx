@@ -14,10 +14,10 @@ import { Spinner } from "@/components/ui/spinner"
 const articles = [
   {
     id: 1,
-    slug: "enjeux-elections-legislatives-haiti",
-    title: "Les enjeux des élections législatives en Haïti",
-    excerpt: "Analyse approfondie des défis et perspectives pour les prochaines élections législatives qui se profilent à l'horizon politique haïtien.",
-    date: "11 mars 2026",
+    slug: "Dessalines en état d’alerte : Markens Larose interpelle",
+    title: "Dessalines en état d’alerte : Markens Larose exhorte l’État central à agir face à l’effondrement des services publics",
+    excerpt: "Au cours d’une intervention accordée à Radio Télé Dessalines, Markens Larose a appelé l’État central à assumer ses responsabilités face à la dégradation croissante des institutions publiques dans la commune de Dessalines, dénonçant la paralysie de plusieurs services essentiels et l’aggravation des conditions de vie de la population.",
+    date: "11 Avril 2026",
     image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=500&fit=crop",
   },
   {

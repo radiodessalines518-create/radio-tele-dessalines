@@ -7,7 +7,7 @@ import { Tv, Maximize2, Volume2, VolumeX } from "lucide-react"
 
 // Configuration - Remplacer par votre URL de stream
 const TV_STREAM_CONFIG = {
-  youtubeVideoId: "jfKfPfyJRdk", // ID de la vidéo YouTube live - A remplacer
+  youtubeVideoId: "hqzu1b30VXY", // ID de la vidéo YouTube live - A remplacer
   // Ou utiliser une URL de stream direct:
   // streamUrl: "https://votre-stream-url.m3u8"
 }
@@ -45,7 +45,7 @@ export function TvLive() {
             Regarder la TV en direct
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-white/70">
-            Suivez Radio Télé Dessalines en direct sur votre écran
+            Suivez Télé Dessalines en direct sur votre écran
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export function TvLive() {
             <div className="flex items-center gap-3">
               <Tv className="h-5 w-5 text-accent" />
               <div>
-                <p className="text-sm font-semibold text-white">Radio Télé Dessalines</p>
+                <p className="text-sm font-semibold text-white">Télé Dessalines</p>
                 <p className="text-xs text-white/60">Canal 17 | DC.TV 68</p>
               </div>
             </div>

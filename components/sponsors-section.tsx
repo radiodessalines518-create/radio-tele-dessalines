@@ -8,14 +8,14 @@ import { Mail } from "lucide-react"
 
 // Responsables de la radio
 const responsables = [
-  { id: 1, name: "Samson Janvier", role: "Designer", logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/samson-YqWany6bvBjd9STj9Utnj9XFVoX2kY.jpg" },
-  { id: 2, name: "Samuel Dorcely", role: "Directeur sportif", logo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80" },
-  { id: 3, name: "Fritznal André", role: "Journaliste sportif", logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fritznal-771cDSf7WhQkzn39puFOOCgzRdTRbo.jpg" },
-  { id: 4, name: "Wesley Jean David", role: "PDG", logo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&q=80" },
-  { id: 5, name: "Melege Fils Louis", role: "Journaliste sportif", logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/melege-w9yrP0TG7tfYtg7Fx5KvlYQv7wzvFE.jpg" },
-  { id: 6, name: "Charmat Alcide", role: "Journaliste sportif", logo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200&h=200&fit=crop&q=80" },
-  { id: 7, name: "Fidano Dameus", role: "Technicien", logo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&q=80" },
-  { id: 8, name: "Jean Pierre", role: "Animateur", logo: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=200&h=200&fit=crop&q=80" },
+  { id: 1, name: "Samson Janvier", role: "Designer", logo: "/images/samson.jpg" },
+  { id: 2, name: "Fritznal André", role: "Journaliste sportif", logo: "/images/fritznal.jpg" },
+  { id: 3, name: "Melege Fils Louis", role: "Journaliste sportif", logo: "/images/melege.jpg" },
+  { id: 4, name: "Samuel Dorcely", role: "Directeur sportif", logo: "/images/samuel.jpg" },
+  { id: 5, name: "Jean Wesley David", role: "PDG", logo: "/images/wesley.jpg" },
+  { id: 6, name: "Charmat Alcide", role: "Journaliste sportif", logo: "/images/charmat.jpg" },
+  { id: 7, name: "Brunel René", role: "Présentateur", logo: "/images/fidano.jpg" },
+  { id: 8, name: "Lunna E.David", role: "ADM", logo: "/images/jean.jpg" },
 ]
 
 // Double the array for seamless scroll

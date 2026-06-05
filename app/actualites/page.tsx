@@ -32,10 +32,10 @@ const allArticles = [
   {
     id: 3,
     slug: "festival-musique-racine-dessalines",
-    title: "Festival de musique racine à Dessalines",
-    excerpt: "Un événement culturel majeur célébrant les traditions musicales haïtiennes avec des artistes locaux et internationaux.",
+    title: "Radyo Tele Desalin (RTD) : yon patrimwàn vivan nan komin Desalin",
+    excerpt: "Nan tout kominote, Radyo Tele Desalin se yon enstitisyon ki make istwa lokal la depi 2005.",
     category: "culture",
-    date: "9 mars 2026",
+    date: "15 mars 2026",
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=500&fit=crop",
   },
   {

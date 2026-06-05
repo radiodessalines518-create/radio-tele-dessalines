@@ -1,24 +1,24 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
 
-// Get Stripe secret key safely
 const stripeKey = process.env.STRIPE_SECRET_KEY
 
 if (!stripeKey) {
   throw new Error("STRIPE_SECRET_KEY is not defined in environment variables")
 }
 
-// Initialize Stripe
 const stripe = new Stripe(stripeKey, {
   apiVersion: "2024-12-18.acacia",
 })
+
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://radioteledessalines.media"
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { amount, currency = "usd", successUrl, cancelUrl } = body
 
-    // Validate amount
     if (!amount || amount < 1) {
       return NextResponse.json(
         { error: "Le montant doit etre superieur a $1" },
@@ -26,10 +26,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL || "https://radioteledessalines.ht"
-
-    // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
@@ -71,7 +67,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Verify payment status
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)

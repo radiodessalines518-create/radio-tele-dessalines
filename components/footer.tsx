@@ -28,10 +28,10 @@ const socialLinks = [
 // Informations de contact
 const CONTACT_INFO = {
   email: "contact@radioteledessalines.com",
-  phone: "+1 (329) 225-3618",
+  phone: "+1(329) 225-3618",
   address: "Dessalines, Artibonite, Haïti",
   frequency: "96.7 FM",
-  channel: "Canal 17",
+  channel: "Canal 9",
 }
 
 export function Footer() {

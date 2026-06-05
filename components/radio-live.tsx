@@ -9,15 +9,11 @@ import { cn } from "@/lib/utils"
 
 // Configuration du streaming - Remplacer par l'URL du serveur de streaming
 const STREAM_CONFIG = {
-  // URL du serveur de streaming radio (à configurer)
-  streamUrl: "https://stream.zeno.fm/0r0xa792kwzuv",
-  // Fréquence FM
+  streamUrl: "https://stream.zeno.fm/5dcar3tdcd0uv",
   frequency: "96.7",
-  // Chaine TV
   channel: "17",
-  // DC.TV
   dcTv: "68",
-}
+};
 
 export function RadioLive() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -63,17 +59,12 @@ export function RadioLive() {
             <div className="flex flex-col items-center gap-6 md:flex-row md:gap-8">
               {/* Logo RTD with Premium Glow Effect */}
               <div className="relative flex items-center justify-center">
-                {/* Outer Rotating Conic Gradient Ring - Only when playing */}
                 {isPlaying && (
                   <div className="absolute h-36 w-36 rounded-full radio-conic-ring radio-ring-rotating md:h-44 md:w-44 opacity-60" />
                 )}
-                
-                {/* Middle Pulsing Ring */}
                 {isPlaying && (
                   <div className="absolute h-32 w-32 rounded-full border-2 border-primary/50 radio-ring-pulsing md:h-40 md:w-40" />
                 )}
-                
-                {/* Sound Wave Rings - Expanding outward */}
                 {isPlaying && (
                   <>
                     <div className="absolute h-28 w-28 rounded-full border border-primary/40 sound-wave md:h-36 md:w-36" />
@@ -81,8 +72,6 @@ export function RadioLive() {
                     <div className="absolute h-28 w-28 rounded-full border border-primary/20 sound-wave-delayed-2 md:h-36 md:w-36" />
                   </>
                 )}
-                
-                {/* Main Logo Container with Glow */}
                 <div
                   className={cn(
                     "relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm md:h-36 md:w-36 transition-all duration-300",
@@ -143,9 +132,7 @@ export function RadioLive() {
                     ) : (
                       <Play className="ml-1 h-6 w-6" />
                     )}
-                    <span className="sr-only">
-                      {isPlaying ? "Pause" : "Lecture"}
-                    </span>
+                    <span className="sr-only">{isPlaying ? "Pause" : "Lecture"}</span>
                   </Button>
 
                   <div className="flex items-center gap-3">
@@ -155,14 +142,8 @@ export function RadioLive() {
                       onClick={toggleMute}
                       className="text-white/70 hover:bg-white/10 hover:text-white"
                     >
-                      {isMuted ? (
-                        <VolumeX className="h-5 w-5" />
-                      ) : (
-                        <Volume2 className="h-5 w-5" />
-                      )}
-                      <span className="sr-only">
-                        {isMuted ? "Activer le son" : "Couper le son"}
-                      </span>
+                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                      <span className="sr-only">{isMuted ? "Activer le son" : "Couper le son"}</span>
                     </Button>
                     <Slider
                       value={volume}
@@ -203,15 +184,15 @@ export function RadioLive() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl font-bold text-white md:text-2xl">
-                    Ecoutez la playlist officielle de Radio Tele Dessalines sur Spotify
+                    Écoutez la playlist officielle de Radio Télé Dessalines sur Spotify
                   </h3>
                   <p className="text-sm text-white/60">
-                    Profitez de notre selection musicale en parallele du direct FM
+                    Profitez de notre sélection musicale en parallèle du direct FM
                   </p>
                 </div>
               </div>
               
-              {/* Spotify Embed - Replace PLAYLIST_ID with your actual Spotify playlist ID */}
+              {/* Spotify Embed */}
               <div className="overflow-hidden rounded-xl shadow-lg">
                 <iframe
                   src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
@@ -226,7 +207,7 @@ export function RadioLive() {
               </div>
               
               <p className="mt-4 text-center text-xs text-white/40">
-                La playlist Spotify fonctionne independamment du streaming FM live. Vous pouvez ecouter les deux simultanement.
+                La playlist Spotify fonctionne indépendamment du streaming FM live. Vous pouvez écouter les deux simultanément.
               </p>
             </div>
           </div>

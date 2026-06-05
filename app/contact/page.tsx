@@ -14,7 +14,7 @@ import { Footer } from "@/components/footer"
 // Informations de contact
 const CONTACT_INFO = {
   email: "contact@radioteledessalines.com",
-  phone: "+509 00 00 00 00",
+  phone: "+1(329) 225-3618",
   address: "Dessalines, Artibonite, Haïti",
   frequency: "96.7 FM",
   channel: "Canal 17",
