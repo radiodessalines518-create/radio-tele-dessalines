@@ -33,7 +33,7 @@ const slides = [
     buttonText: "Voir les vidéos",
     buttonHref: "#videos",
     icon: Video,
-    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1920&h=1080&fit=crop",
+    image: "/images/grenadiers-2026.jpg",
   },
 ]
 
