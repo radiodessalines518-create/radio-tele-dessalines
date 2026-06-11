@@ -195,15 +195,15 @@ export function RadioLive() {
               {/* Spotify Embed */}
               <div className="overflow-hidden rounded-xl shadow-lg">
                 <iframe
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-                  width="100%"
-                  height="352"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  className="rounded-xl"
-                  title="Playlist Spotify Radio Tele Dessalines"
-                />
+  src="https://open.spotify.com/embed/playlist/1IFc9AMtOu8omcfyQqCltE?utm_source=generator&theme=0"
+  width="100%"
+  height="352"
+  frameBorder="0"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy"
+  className="rounded-xl"
+  title="Playlist Spotify Radio Tele Dessalines"
+/>
               </div>
               
               <p className="mt-4 text-center text-xs text-white/40">
