@@ -7,7 +7,7 @@ import { Tv, Maximize2, Volume2, VolumeX } from "lucide-react"
 
 // Configuration - Remplacer par votre URL de stream
 const TV_STREAM_CONFIG = {
-  youtubeVideoId: "aZBisqi8Eho", // ID de la vidéo YouTube live - A remplacer
+  youtubeVideoId: "WeHoWhOEOG0", // ID de la vidéo YouTube live - A remplacer
   // Ou utiliser une URL de stream direct:
   // streamUrl: "https://votre-stream-url.m3u8"
 }
